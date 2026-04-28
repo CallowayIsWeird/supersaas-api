@@ -1,0 +1,8 @@
+node_modules
+dist
+*.tsbuildinfo
+.env
+.env.local
+
+# Upstream reference clone — not part of this repo
+_upstream/
