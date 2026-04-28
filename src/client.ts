@@ -25,7 +25,7 @@ import { API_VERSION, DEFAULT_HOST } from './constants.js';
  *
  * @internal
  */
-export const SDK_VERSION = '0.1.0';
+export const SDK_VERSION = '1.0.0';
 
 /**
  * Configuration accepted by the {@link SuperSaas} constructor.

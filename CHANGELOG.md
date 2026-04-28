@@ -7,11 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.0] - 2026-04-26
+## [1.0.0] - 2026-04-26
 
 ### Added
 
-- Initial public release.
+- Initial stable release.
 - Strict TypeScript port of the official `supersaas-api-client` (©2018 SuperSaaS).
 - `SuperSaas` client class with explicit instantiation and `fromEnv()` factory.
 - Resource namespaces: `appointments`, `users`, `schedules`, `forms`, `promotions`, `groups`.
