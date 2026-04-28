@@ -1,0 +1,18 @@
+# everything except dist/ + LICENSE + README + CHANGELOG (driven by `files` in package.json)
+src
+test
+_upstream
+docs
+coverage
+.github
+.editorconfig
+.gitignore
+.prettierrc.json
+.prettierignore
+eslint.config.js
+tsup.config.ts
+tsconfig.json
+typedoc.json
+vitest.config.ts
+CONTRIBUTING.md
+*.tgz
