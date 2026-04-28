@@ -7,9 +7,9 @@
  * import { SuperSaas } from '@callowayisweird/supersaas';
  *
  * const client = new SuperSaas({
- *   accountName: 'musicloft',
+ *   accountName: 'your-account-name',
  *   apiKey: process.env.SSS_API_KEY!,
- *   timezone: 'America/Phoenix',
+ *   timezone: 'America/New_York',
  * });
  *
  * const schedules = await client.schedules.list();

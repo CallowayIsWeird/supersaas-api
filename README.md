@@ -26,7 +26,7 @@ import { SuperSaas } from '@callowayisweird/supersaas';
 const client = new SuperSaas({
   accountName: 'your-account-name',
   apiKey: process.env.SSS_API_KEY!,
-  timezone: 'America/Phoenix', // schedules' configured timezone
+  timezone: 'America/New_York', // your schedules' configured timezone
 });
 
 const schedules = await client.schedules.list();
@@ -36,7 +36,7 @@ console.log(schedules);
 Or build from environment variables (`SSS_API_ACCOUNT_NAME` and `SSS_API_KEY`):
 
 ```ts
-const client = SuperSaas.fromEnv({ timezone: 'America/Phoenix' });
+const client = SuperSaas.fromEnv({ timezone: 'America/New_York' });
 ```
 
 ## Why this library
@@ -202,13 +202,13 @@ Key differences:
 
 ## Configuration recipes
 
-### Phoenix-timezone client for a US studio
+### Client with an explicit timezone
 
 ```ts
 const client = new SuperSaas({
-  accountName: 'musicloft',
+  accountName: 'your-account-name',
   apiKey: process.env.SSS_API_KEY!,
-  timezone: 'America/Phoenix',
+  timezone: 'America/New_York',
 });
 ```
 

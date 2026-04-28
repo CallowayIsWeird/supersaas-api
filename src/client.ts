@@ -59,8 +59,9 @@ export interface SuperSaasConfig {
   /**
    * IANA timezone for formatting `Date` parameters into SuperSaaS-compatible
    * datetime strings. Defaults to `'UTC'`. Set to your account's configured
-   * timezone (e.g. `'America/Phoenix'`) so that `Date` objects you pass land
-   * at the wall-clock time you intended in the schedule.
+   * timezone (e.g. `'America/New_York'`, `'Europe/Berlin'`, `'Asia/Tokyo'`)
+   * so that `Date` objects you pass land at the wall-clock time you intended
+   * in the schedule.
    */
   timezone?: string;
 }
@@ -84,9 +85,9 @@ export interface ClientContext {
  * import { SuperSaas } from '@callowayisweird/supersaas';
  *
  * const client = new SuperSaas({
- *   accountName: 'musicloft',
+ *   accountName: 'your-account-name',
  *   apiKey: process.env.SSS_API_KEY!,
- *   timezone: 'America/Phoenix',
+ *   timezone: 'America/New_York',
  * });
  *
  * const schedules = await client.schedules.list();

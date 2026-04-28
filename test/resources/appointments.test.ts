@@ -8,7 +8,7 @@ function setup(): { client: SuperSaas; http: MockHttpClient } {
     accountName: 'a',
     apiKey: 'k',
     httpClient: http,
-    timezone: 'America/Phoenix',
+    timezone: 'Asia/Tokyo',
   });
   return { client, http };
 }
@@ -31,10 +31,10 @@ describe('Appointments', () => {
     http.push({ body: [] });
     await client.appointments.range({
       scheduleId: 7,
-      from: new Date('2026-04-28T16:30:00Z'),
-      to: new Date('2026-04-28T23:30:00Z'),
+      from: new Date('2026-04-28T00:30:00Z'),
+      to: new Date('2026-04-28T07:30:00Z'),
     });
-    // Phoenix is UTC-7
+    // Tokyo is UTC+9, no DST.
     expect(http.calls[0]?.query).toMatchObject({
       from: '2026-04-28 09:30:00',
       to: '2026-04-28 16:30:00',

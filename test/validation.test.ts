@@ -104,9 +104,9 @@ describe('formatDateTime', () => {
   });
 
   it('formats Date in a specific IANA timezone', () => {
-    const d = new Date('2026-04-28T16:30:00Z');
-    // Phoenix is UTC-7 (no DST).
-    expect(formatDateTime(d, 'America/Phoenix')).toBe('2026-04-28 09:30:00');
+    const d = new Date('2026-04-28T00:30:00Z');
+    // Tokyo is UTC+9 (no DST).
+    expect(formatDateTime(d, 'Asia/Tokyo')).toBe('2026-04-28 09:30:00');
   });
 
   it('rejects invalid Date', () => {
