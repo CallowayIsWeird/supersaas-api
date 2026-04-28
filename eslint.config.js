@@ -13,7 +13,6 @@ export default [
       parserOptions: {
         ecmaVersion: 2023,
         sourceType: 'module',
-        project: './tsconfig.json',
       },
     },
     plugins: {
