@@ -9,6 +9,7 @@ import type { ClientContext } from '../client.js';
 import { Duplicate, NotFound, Role } from '../constants.js';
 import {
   compact,
+  validateCredit,
   validateId,
   validateNumber,
   validateOption,
@@ -214,7 +215,7 @@ export class Users {
       super_field: attrs.super_field,
     };
     if (attrs.credit !== undefined) {
-      out['credit'] = validateNumber(attrs.credit, 'credit');
+      out['credit'] = validateCredit(attrs.credit);
     }
     if (attrs.role !== undefined) {
       out['role'] = validateOption(attrs.role, [Role.Customer, Role.Admin, Role.Restricted]);

@@ -40,6 +40,25 @@ export function validateNumber(value: unknown, name = 'value'): number {
 }
 
 /**
+ * Validates a credit amount. Unlike {@link validateNumber}, decimals are
+ * allowed: accounts whose credit represents money store fractional values
+ * (e.g. `22.5` for $22.50), and SuperSaaS accepts them. Must be finite and
+ * non-negative.
+ *
+ * @internal
+ */
+export function validateCredit(value: unknown, name = 'credit'): number {
+  const num =
+    typeof value === 'number' ? value : typeof value === 'string' ? Number(value) : Number.NaN;
+  if (Number.isFinite(num) && num >= 0) {
+    return num;
+  }
+  throw new ValidationError(
+    `Invalid ${name} parameter: ${String(value)}. Provide a non-negative number.`,
+  );
+}
+
+/**
  * Validates a user identifier — accepts numeric ID or string username.
  *
  * @internal

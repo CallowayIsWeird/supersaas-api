@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-07-04
+
+### Fixed
+
+- `users.create` / `users.update` rejected decimal `credit` values with
+  `ValidationError` because credit was validated as an integer ID. Accounts
+  whose credit represents money store fractional amounts (e.g. `22.5` for
+  $22.50), and SuperSaaS accepts them. Credit is now validated as a
+  non-negative finite number (`validateCredit`); numeric strings such as
+  `"22.50"` - the shape SuperSaaS itself returns - are also accepted.
+
 ## [1.0.0] - 2026-04-26
 
 ### Added

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   compact,
   formatDateTime,
+  validateCredit,
   validateId,
   validateNumber,
   validateOption,
@@ -35,6 +36,27 @@ describe('validateNumber', () => {
   it('delegates to validateId', () => {
     expect(validateNumber(7)).toBe(7);
     expect(() => validateNumber(-1)).toThrow(ValidationError);
+  });
+});
+
+describe('validateCredit', () => {
+  it('accepts decimals (money credit, e.g. $22.50)', () => {
+    expect(validateCredit(22.5)).toBe(22.5);
+    expect(validateCredit(0)).toBe(0);
+    expect(validateCredit(100)).toBe(100);
+  });
+
+  it('parses numeric strings, as SuperSaaS returns credit as a string', () => {
+    expect(validateCredit('22.50')).toBe(22.5);
+    expect(validateCredit('0.00')).toBe(0);
+  });
+
+  it('rejects negatives, NaN, Infinity, and junk', () => {
+    expect(() => validateCredit(-0.01)).toThrow(ValidationError);
+    expect(() => validateCredit(Number.NaN)).toThrow(ValidationError);
+    expect(() => validateCredit(Number.POSITIVE_INFINITY)).toThrow(ValidationError);
+    expect(() => validateCredit('abc')).toThrow(ValidationError);
+    expect(() => validateCredit(null)).toThrow(ValidationError);
   });
 });
 
